@@ -1,0 +1,14 @@
+start := unit unit_seq
+
+unit := '(' unit unit_seq ') kleene alternate | symbol kleene symbol_seq alternate
+
+unit_seq := unit unit_seq | EPSILON
+
+kleene := '*' | EPSILON
+
+alternate := '|' unit alternate | EPSILON
+
+symbol_seq := symbol kleene symbol_seq | EPSILON
+
+symbol := '\'[*\|()] | [a-z0-9]
+

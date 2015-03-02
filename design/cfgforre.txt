@@ -1,0 +1,22 @@
+
+
+reg_expr := comp_unit kleene 
+
+comp_unit := '(' unit unitrest ') | unit unitrest
+
+unitrest := '|' unit unitrest | EPSILON
+
+unit := symbol kleene unit | option kleene unit 
+
+kleene := '*' | EPSILON
+
+option := '[' symbol atomic_symbol_seq ']'
+
+atomic_symbol_seq := symbol atomic_symbol_seq | EPSILON 
+
+symbol := 'a' | ... | 'z'
+
+
+reg_expr := expr expr_rest
+expr_rest := expr expr_rest | EPSILON
+reg_expr := '(' reg_expr ')' | reg_expr '|' | reg_expr '*' | EPSILON

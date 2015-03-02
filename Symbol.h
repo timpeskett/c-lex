@@ -1,0 +1,32 @@
+#ifndef SYMBOL_H
+#define SYMBOL_H
+
+#include <stdlib.h>
+#include <string.h>
+#include "global.h"
+
+typedef enum {  NONE, WHITESPACE, 
+		ID, 
+		INTCONST, FLOATCONST, ENUMCONST, CHARCONST,
+		STRINGLIT,
+		LBRACE, RBRACE, LSQUARE, RSQUARE, LPAREN, RPAREN,
+		MULTOP, ADDOP, SHIFTOP, RELOP, EQOP, BITANDOP, BITEXOROP, BITINOROP, LOGANDOP, LOGOROP,
+		ASSIGN,
+		INCDEC, DOT, ARROW, COMMA, QUESTION, COLON, ELLIPSIS, SEMICOLON,
+
+		AUTO, DOUBLE, INT, STRUCT, BREAK, ELSE, LONG, SWITCH, CASE, ENUM, REGISTER, TYPEDEF,
+		CHAR, EXTERN, RETURN, UNION, CONST, FLOAT, SHORT, UNSIGNED, CONTINUE, FOR, SIGNED,
+		VOID, DEFAULT, GOTO, SIZEOF, VOLATILE, DO, IF, STATIC, WHILE
+		} Token;
+
+
+typedef struct
+{
+	Token token;
+	char *lexeme;
+} *Symbol;
+
+Symbol createSymbol( Token tok, char *lex );
+void destroySymbol( Symbol sym );
+
+#endif
