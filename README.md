@@ -169,12 +169,16 @@ Lexical Analyser enountered an error on line 7 of file helloworld.c -- Token not
 
 To build --
 
+```bash
 git clone https://github.com/timpeskett/c-lex
 cd c-lex
 make
+```
 
 To run -- 
+```bash
 ./lextest <inputfile>
+```
 
 ## Known Bugs
 
